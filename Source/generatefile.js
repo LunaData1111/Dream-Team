@@ -1,18 +1,17 @@
-const generateTeam = team => {
-    const html = [];
-    // create the manager html
-    // Card for Manager
-    const generateManager = manager => {
-        return `
+const generateTeam = (team) => {
+  const html = [];
+  // create the manager html
+  // Card for Manager
+  const generateManager = (manager) => {
+    return `
         <div class="card employee-card">
 @@ -18,7 +18,43 @@ const generateTeam = team => {
     </div>
         `;
-    };
-    //create cards for everyone else
-    //Card for Engineer
-    const generateEngineer = engineer => {
-        return `
+  };
+  //Card for Engineer
+  const generateEngineer = (engineer) => {
+    return `
         <div class="card employee-card">
         <div class="card-header">
             <h2 class="card-title">${engineer.getName()}</h2>
@@ -27,10 +26,10 @@ const generateTeam = team => {
         </div>
     </div>
         `;
-    };
-    //Card for Intern
-    const generateIntern = intern => {
-        return `
+  };
+  //Card for Intern
+  const generateIntern = (intern) => {
+    return `
         <div class="card employee-card">
         <div class="card-header">
             <h2 class="card-title">${intern.getName()}</h2>
@@ -45,8 +44,9 @@ const generateTeam = team => {
         </div>
     </div>
         `;
-    };
+  };
 
-    html.push(team
-        .filter(employee => employee.getRole() === "Manager")
-        .map(manager => generateManager(manager))
+  html
+    .push(team.filter((employee) => employee.getRole() === "Manager"))
+    .map((manager) => generateManager(manager));
+};
